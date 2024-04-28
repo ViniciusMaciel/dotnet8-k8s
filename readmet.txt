@@ -1,1 +1,1 @@
-docker build -t aspnetapp .
+docker build -t dotnet-k82-hw .  

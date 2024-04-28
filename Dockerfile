@@ -10,7 +10,7 @@ RUN dotnet restore -a $TARGETARCH
 
 # copy and publish app and libraries
 COPY aspnetapp/. .
-RUN dotnet publish -a $TARGETARCH --no-restore --property:PublishDir=/app
+RUN dotnet publish -a $TARGETARCH --no-restore -o /app
 
 
 # final stage/image
@@ -19,4 +19,4 @@ EXPOSE 8080
 WORKDIR /app
 COPY --from=build /app .
 USER $APP_UID
-ENTRYPOINT ["./aspnetapp"]
+ENTRYPOINT ["./test"]
